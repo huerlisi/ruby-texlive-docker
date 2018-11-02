@@ -5,13 +5,12 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - ;\
     apt-get install -y nodejs
 
 # Install yarn
-RUN apt-get update && apt-get -y install apt-transport-https ;\
+RUN apt-get update && apt-get --yes install apt-transport-https ;\
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - ;\
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list ;\
-    apt-get update --yes 
-# It always failed when I tried to connect the innstall command with the update.
-# Only this way it worked. Could not figure out why.
-RUN apt-get install --yes yarn
+    apt-get update --yes && apt-get install --yes yarn ;\
+    apt-get clean ;\
+    rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update --yes ;\
     apt-get install --yes texlive texlive-lang-german texlive-fonts-extra texlive-latex-extra pdftk ghostscript ;\
