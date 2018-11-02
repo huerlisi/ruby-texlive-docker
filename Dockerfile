@@ -1,4 +1,9 @@
 FROM ruby:2.3
+
+# Install / Update node
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - ;\
+    apt-get install -y nodejs
+
 # Install yarn
 RUN apt-get update && apt-get -y install apt-transport-https ;\
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - ;\
