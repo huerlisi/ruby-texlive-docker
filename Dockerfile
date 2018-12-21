@@ -31,3 +31,8 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     apt-get clean ;\
     rm -rf /var/lib/apt/lists/*
 
+# Install mdbtools for importers
+RUN apt-get update --yes ;\
+    apt-get install --yes mdbtools ;\
+    apt-get clean ;\
+    rm -rf /var/lib/apt/lists/*
