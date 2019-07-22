@@ -6,7 +6,7 @@ RUN apt-get update --yes && \
     rm -rf /var/lib/apt/lists/*
 
 # Install node
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs
 
 # Install yarn
