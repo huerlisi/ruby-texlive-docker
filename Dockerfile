@@ -5,6 +5,12 @@ RUN apt-get update --yes && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Install mdbtools for importers
+RUN apt-get update --yes && \
+    apt-get install --yes mdbtools && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 # Install node and yarn
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
@@ -25,11 +31,5 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     echo "deb https://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google.list && \
     apt-get update --yes && \
     apt-get install --yes google-chrome-stable && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install mdbtools for importers
-RUN apt-get update --yes && \
-    apt-get install --yes mdbtools && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
