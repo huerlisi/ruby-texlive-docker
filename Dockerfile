@@ -1,7 +1,7 @@
 FROM ruby:2.6-stretch
 
 RUN apt-get update --yes && \
-    apt-get --yes install apt-transport-https && \
+    apt-get install --yes apt-transport-https && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
