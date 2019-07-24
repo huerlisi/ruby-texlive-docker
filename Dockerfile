@@ -22,7 +22,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
 
 # Install TeX Live
 RUN apt-get update --yes && \
-    apt-get install --yes --no-install-recommends texlive texlive-lang-german texlive-fonts-extra texlive-latex-extra pdftk ghostscript && \
+    apt-get install --yes --no-install-recommends texlive texlive-lang-german texlive-fonts-extra texlive-latex-extra texlive-pstricks pdftk ghostscript && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
