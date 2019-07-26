@@ -1,4 +1,4 @@
-FROM ruby:2.6-stretch
+FROM ruby:2.6
 
 RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends apt-transport-https && \
