@@ -1,7 +1,9 @@
 FROM ruby:2.6
 
 RUN apt-get update --yes && \
-    apt-get install --yes --no-install-recommends apt-transport-https && \
+    apt-get install --yes --no-install-recommends apt-transport-https cmake && \
+    gem uninstall bundler && \
+    gem install bundler --version 1.17.3 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
