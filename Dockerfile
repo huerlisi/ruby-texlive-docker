@@ -1,4 +1,4 @@
-FROM ruby:2.6
+FROM ruby:2.6.5
 
 # Setup proper UTF-8 locale
 RUN apt-get update --yes && \
