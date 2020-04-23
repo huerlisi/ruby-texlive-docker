@@ -32,12 +32,6 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Install TeX Live
-RUN apt-get update --yes && \
-    apt-get install --yes --no-install-recommends texlive texlive-lang-german texlive-fonts-extra texlive-latex-extra texlive-pstricks pdftk ghostscript && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 # Install Chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
     echo "deb https://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google.list && \
