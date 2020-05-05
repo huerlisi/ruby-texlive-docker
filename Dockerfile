@@ -10,6 +10,12 @@ RUN apt-get update --yes && \
     echo "LANG=en_US.UTF-8" > /etc/locale.conf && \
     locale-gen en_US.UTF-8
 
+# Install imagemagick
+RUN apt-get update --yes && \
+    apt-get install --yes --no-install-recommends imagemagick && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends apt-transport-https cmake && \
     gem uninstall bundler && \
