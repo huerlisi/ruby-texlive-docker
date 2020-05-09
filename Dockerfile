@@ -10,6 +10,12 @@ RUN apt-get update --yes && \
     echo "LANG=en_US.UTF-8" > /etc/locale.conf && \
     locale-gen en_US.UTF-8
 
+# Install imagemagick and ghostscript
+RUN apt-get update --yes && \
+    apt-get install --yes --no-install-recommends imagemagick ghostscript && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends apt-transport-https cmake && \
     gem uninstall bundler && \
@@ -29,12 +35,6 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update --yes && \
     apt-get install --yes --no-install-recommends nodejs yarn && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install TeX Live
-RUN apt-get update --yes && \
-    apt-get install --yes --no-install-recommends texlive texlive-lang-german texlive-fonts-extra texlive-latex-extra texlive-pstricks pdftk ghostscript && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
