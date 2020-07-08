@@ -5,7 +5,7 @@ RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends locales && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    echo "LC_ALL=en_US.UTF-8" >> /etc/environment && \
+    echo "export LC_ALL=en_US.UTF-8" >> /etc/environment && \
     echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
     echo "LANG=en_US.UTF-8" > /etc/locale.conf && \
     locale-gen en_US.UTF-8
