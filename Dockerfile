@@ -29,7 +29,13 @@ RUN apt-get update --yes && \
 
 # Install utils
 RUN apt-get update --yes && \
-    apt-get install --yes --no-install-recommends wget gnupg git && \
+    apt-get install --yes --no-install-recommends wget gnupg && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install rubygems dependencies
+RUN apt-get update --yes && \
+    apt-get install --yes --no-install-recommends build-essential libpq-dev git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
