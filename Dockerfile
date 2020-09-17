@@ -29,7 +29,7 @@ RUN apt-get update --yes && \
 
 # Install utils
 RUN apt-get update --yes && \
-    apt-get install --yes --no-install-recommends wget gnupg && \
+    apt-get install --yes --no-install-recommends wget gnupg git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
