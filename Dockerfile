@@ -16,6 +16,11 @@ RUN apt-get update --yes && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Enable PDF reading in Imagemagick
+# Ghostscript support in Imagemagick is disabled due to some security bug. But
+# our image contains a ghostscript version that is not vulnerable anymore.
+RUN sed 's#<policy domain="coder" rights="none" pattern="PDF" />#<policy domain="coder" rights="read" pattern="PDF" />#' -i /etc/ImageMagick-6/policy.xml
+
 RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends apt-transport-https cmake && \
     apt-get clean && \
