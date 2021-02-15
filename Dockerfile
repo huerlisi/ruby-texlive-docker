@@ -16,8 +16,9 @@ RUN apt-get update --yes && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Misc packages
 RUN apt-get update --yes && \
-    apt-get install --yes --no-install-recommends apt-transport-https cmake && \
+    apt-get install --yes --no-install-recommends apt-transport-https cmake yamllint && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
